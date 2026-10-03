@@ -1,0 +1,53 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with contact details and compliance role",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "role": { "type": "string" },
+        "department": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "name", "email"]
+    },
+    "AuditedDocument": {
+      "title": "AuditedDocument",
+      "description": "Classified contract report with risk score, extracted clauses, and audit trail",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "documentTitle": { "type": "string" },
+        "documentType": { "type": "string" },
+        "riskTier": { "type": "string" },
+        "riskScore": { "type": "number" },
+        "confidenceScore": { "type": "number" },
+        "primaryCategory": { "type": "string" },
+        "executiveSummary": { "type": "string" },
+        "isFlaggedForManualReview": { "type": "boolean" },
+        "auditStatus": { "type": "string" },
+        "reviewedBy": { "type": "string" },
+        "reviewerNotes": { "type": "string" },
+        "reviewedAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "documentTitle", "riskTier", "riskScore"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile metadata including name, phone number, and email"
+    },
+    "/users/{userId}/documents/{documentId}": {
+      "schema": "AuditedDocument",
+      "description": "Persistent record of audited documents, risk metrics, and sign-offs for this user"
+    }
+  }
+}

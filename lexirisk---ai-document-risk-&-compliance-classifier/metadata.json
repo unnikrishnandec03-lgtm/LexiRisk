@@ -1,0 +1,6 @@
+{
+  "name": "LexiRisk - AI Document Risk & Compliance Classifier",
+  "description": "Enterprise AI system to classify business documents into risk and compliance categories, flag uncertain items for manual review, inspect clause explainability, and monitor class-wise F1 metrics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
